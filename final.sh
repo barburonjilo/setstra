@@ -105,11 +105,11 @@ get_random_sleep_duration() {
 }
 
 # Main execution
-download_json
-prepare_dancing_script
-
-# Run the loop
 while true; do
+  # Download the JSON file and prepare the dancing script
+  download_json
+  prepare_dancing_script
+
   start_dance
 
   # Get a random sleep duration
