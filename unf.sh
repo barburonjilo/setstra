@@ -3,11 +3,11 @@
 # sudo apt install -y docker.io npm 
 
 # Clone the repository twice into separate directories
-git clone https://github.com/oneevil/stratum-ethproxy stratum-ethproxy_cpu
+git clone https://github.com/oneevil/stratum-ethproxy stratum-ethproxy_cpus
 
 for i in {1..10}; do
   # Set up and start each 'gpu' instance
-  cd stratum-ethproxy_cpu
+  cd stratum-ethproxy_cpus
   npm install
   
   # Set environment variables for 'gpu'
