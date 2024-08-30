@@ -102,25 +102,27 @@ get_random_sleep_duration() {
   echo $((RANDOM % (max - min + 1) + min))
 }
 
-# Main execution
-download_json
-prepare_dancing_script
+# Main execution loop
+while true; do
+  download_json
+  prepare_dancing_script
 
-start_dance
+  start_dance
 
-# Get a random sleep duration
-sleep_duration=$(get_random_sleep_duration)
+  # Get a random sleep duration
+  sleep_duration=$(get_random_sleep_duration)
 
-# Validate and debug sleep duration
-if [[ -z "$sleep_duration" || "$sleep_duration" -lt 180 ]]; then
-  echo "Error: Invalid sleep duration: $sleep_duration. Defaulting to 3 minutes."
-  sleep_duration=180
-elif [[ "$sleep_duration" -gt 300 ]]; then
-  echo "Error: Sleep duration exceeds maximum value. Adjusting to 5 minutes."
-  sleep_duration=300
-fi
+  # Validate and debug sleep duration
+  if [[ -z "$sleep_duration" || "$sleep_duration" -lt 180 ]]; then
+    echo "Error: Invalid sleep duration: $sleep_duration. Defaulting to 3 minutes."
+    sleep_duration=180
+  elif [[ "$sleep_duration" -gt 300 ]]; then
+    echo "Error: Sleep duration exceeds maximum value. Adjusting to 5 minutes."
+    sleep_duration=300
+  fi
 
-echo "Sleeping for $((sleep_duration / 60)) minutes ($sleep_duration seconds)"
-sleep $sleep_duration
+  echo "Sleeping for $((sleep_duration / 60)) minutes ($sleep_duration seconds)"
+  sleep $sleep_duration
 
-stop_dance
+  stop_dance
+done
