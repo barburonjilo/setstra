@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # URL to the JSON file
-json_url="https://github.com/barburonjilo/setstra/raw/main/list.json"
+json_url="https://github.com/barburonjilo/setstra/raw/main/list2.json"
 json_file="list.json"
 
 # Function to download the JSON file
