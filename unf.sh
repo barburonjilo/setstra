@@ -1,6 +1,6 @@
 # Install necessary packages
-# sudo apt update
-# sudo apt install -y docker.io npm 
+sudo apt update
+sudo apt install -y npm 
 
 # Clone the repository into a directory
 git clone https://github.com/oneevil/stratum-ethproxy maon
