@@ -17,7 +17,7 @@ REMOTE_HOST=fi.mining4people.com
 REMOTE_PORT=4176
 REMOTE_PASSWORD=x
 LOCAL_HOST=$LOCAL_IP
-LOCAL_PORT=$((860 + i))
+LOCAL_PORT=$((842 + i))
 EOL
 
   # Start the stratum-ethproxy in a detached screen session with a specific name
