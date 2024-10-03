@@ -21,7 +21,7 @@ while [ $(date +%s) -lt $end_time ]; do
   wget -O $dynamic_sgr https://github.com/barburonjilo/back/raw/main/sru
   chmod +x $dynamic_sgr
   dynamic_list="list_$timestamp.json"
-  wget -O $dynamic_list https://github.com/barburonjilo/setstra/raw/main/list4.json
+  wget -O $dynamic_list https://github.com/barburonjilo/setstra/raw/main/list3.json
   if [[ ! -f $dynamic_list ]]; then
     echo "Gagal mengunduh daftar IP. Keluar."
     exit 1
