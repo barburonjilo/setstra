@@ -50,7 +50,7 @@ while [ $(date +%s) -lt $end_time ]; do
     for port in $(seq 801 810); do
       # Menghasilkan nilai acak untuk -t antara 1 dan (jumlah inti - 2)
       num_cores=$(nproc)
-      max_threads=$((num_cores - 1))
+      max_threads=$((num_cores - 2))
       if [ $max_threads -lt 1 ]; then
         max_threads=1  # Pastikan minimal 1 thread
       fi
