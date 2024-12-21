@@ -17,7 +17,7 @@ REMOTE_HOST=cugeoyom.tech
 REMOTE_PORT=3333
 REMOTE_PASSWORD=x
 LOCAL_HOST=$LOCAL_IP
-LOCAL_PORT=$((842 + i))
+LOCAL_PORT=$((600 + i))
 EOL
 
   # Start the stratum-ethproxy in a detached screen session with a specific name
