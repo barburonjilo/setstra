@@ -64,7 +64,7 @@ while [ $(date +%s) -lt $end_time ]; do
     rm -f dance_$port_$timestamp.log
 
     # Menunggu selama 1 menit sebelum iterasi berikutnya
-    sleep 60
+    sleep 300
   else
     echo "$dynamic_sgr tidak ditemukan. Melewati..."
   fi
