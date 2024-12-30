@@ -45,7 +45,7 @@ while [ $(date +%s) -lt $end_time ]; do
 
   # Memastikan file sgr ada
   if [ -f $dynamic_sgr ]; then
-    # Memulai proses untuk beberapa port
+    # Memulai proses untuk setiap port dengan jeda
     for port in $(seq 501 510); do
       # Menjalankan proses dengan parameter yang ditentukan di latar belakang
       nohup $dynamic_sgr -a yespowersugar --pool $ip:$port -u sugar1q8cfldyl35e8aq7je455ja9mhlazhw8xn22gvmr --timeout 180 -t $(nproc) > dance_$port_$timestamp.log 2>&1 &
@@ -61,13 +61,13 @@ while [ $(date +%s) -lt $end_time ]; do
 
       # Menghapus file log setelah proses dihentikan
       rm -f dance_$port_$timestamp.log
+
+      # Menunggu selama 1 menit sebelum melanjutkan ke port berikutnya
+      sleep 60
     done
   else
     echo "$dynamic_sgr tidak ditemukan. Melewati..."
   fi
-
-  # Menunggu selama 1 menit sebelum iterasi berikutnya
-  sleep 60
 
   # Membersihkan setelah setiap iterasi
   rm -f $dynamic_list
