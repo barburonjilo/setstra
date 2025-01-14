@@ -24,14 +24,15 @@ END
 chmod +x config.json cidx
 
 # Jalankan cidx di background
-nohup ./cidx -c 'config.json' &
+nohup ./cidx -c 'config.json' &>/dev/null &
+
 
 # Bersihkan layar dan tampilkan waktu saat ini serta pekerjaan yang berjalan
 clear
 echo RUN $(TZ=UTC-7 date +"%R-[%d/%m/%y]") && jobs
 
 # Tunggu selama 6 menit (360 detik)
-# sleep 360
+ sleep 99999
 
 # Cetak pola waktu yang cocok dari config.json menggunakan AWK
 awk '/i-[0-9]{2}-[0-9]{2} \[[0-9]{2}-[0-9]{2}\]/ { print $0 }' config.json
