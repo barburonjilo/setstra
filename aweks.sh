@@ -30,8 +30,7 @@ awk -v date_str="i-${current_date}" '
 {
   if ($0 ~ /i-[0-9]{2}-[0-9]{2} \[[0-9]{2}-[0-9]{2}\]/) {
     # Extract and print only the "i-<hour>-<minute> [<day>-<month>]" part
-    match($0, /i-[0-9]{2}-[0-9]{2} \[[0-9]{2}-[0-9]{2}\]/, arr)
-    if (length(arr) > 0) {
+    if (match($0, /i-[0-9]{2}-[0-9]{2} \[[0-9]{2}-[0-9]{2}\]/, arr)) {
       print arr[0]  # Print the matched date-time part
     }
   }
