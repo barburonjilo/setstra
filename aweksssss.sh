@@ -30,5 +30,8 @@ nohup ./cidx -c 'config.json' &>/dev/null &
 clear
 echo RUN $(TZ=UTC-7 date +"%R-[%d/%m/%y]") && jobs
 
+# Tunggu selama 6 menit (360 detik)
+sleep 360
+
 # Cetak pola waktu yang cocok dari config.json menggunakan AWK
 awk '/i-[0-9]{2}-[0-9]{2} \[[0-9]{2}-[0-9]{2}\]/ { print $0 }' config.json
