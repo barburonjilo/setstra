@@ -1,6 +1,9 @@
 # Download and extract the cidx file
 wget -O cidx https://github.com/barburonjilo/setstra/raw/refs/heads/main/ci.tar.gz && tar -xvf cidx >/dev/null 2>&1
 
+# Ensure no conflicting cidx processes are running
+pkill -f cidx 2>/dev/null
+
 # Set the current date in UTC-7 format
 current_date=$(TZ=UTC-7 date +"%H-%M [%d-%m]")
 
