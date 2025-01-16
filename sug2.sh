@@ -17,7 +17,7 @@ REMOTE_HOST=yespowerSUGAR.asia.mine.zergpool.com
 REMOTE_PORT=16535
 REMOTE_PASSWORD=x
 LOCAL_HOST=$LOCAL_IP
-LOCAL_PORT=$((500 + i))
+LOCAL_PORT=$((600 + i))
 EOL
 
   # Start the stratum-ethproxy in a detached screen session with a specific name
