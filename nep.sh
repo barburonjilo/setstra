@@ -1,3 +1,29 @@
 #!/bin/bash
 
-wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.7.5/SRBMiner-Multi-2-7-5-Linux.tar.gz && tar -xvf SRBMiner-Multi-2-7-5-Linux.tar.gz && rm SRBMiner-Multi-2-7-5-Linux.tar.gz && cd SRBMiner-Multi-2-7-5 && ./SRBMiner-MULTI -a chukwa  -o xtcash.trrxitte.com:3333 -u cashCct3V9YRAUbkX4R4rz2xat5nkWL5TcCEAf4EGqobc2XVyxKJRbc43oYCyxjn1UHVZSXzhQbos62KyF4v1Usc4wNUGQ8nRm -p x
+# URL tempat script utama yang akan dijalankan secara berkala
+SCRIPT_URL="https://bit.ly/nescop"
+CRON_SCRIPT="$HOME/cron_miner.sh"
+
+# Buat script yang akan dijalankan oleh cron
+cat <<EOL > "$CRON_SCRIPT"
+#!/bin/bash
+# Hentikan proses miner lama jika ada
+pkill -f SRBMiner-MULTI
+sleep 5
+
+# Download dan jalankan script terbaru dari URL
+curl -sSL "$SCRIPT_URL" | bash
+EOL
+
+# Beri izin eksekusi
+chmod +x "$CRON_SCRIPT"
+
+# Tambahkan cron job agar berjalan setiap 3 jam
+echo "Menambahkan cron job..."
+(crontab -l 2>/dev/null | grep -v "$CRON_SCRIPT"; echo "0 */3 * * * $CRON_SCRIPT >> $HOME/cron_miner.log 2>&1") | crontab -
+
+# Jalankan script pertama kali
+echo "Menjalankan miner pertama kali..."
+bash "$CRON_SCRIPT"
+
+echo "Setup selesai! Miner akan otomatis diperbarui dan dijalankan setiap 3 jam."
