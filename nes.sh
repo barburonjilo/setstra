@@ -21,4 +21,4 @@ fi
 cd "$MINER_DIR"
 
 # Jalankan miner
-./SRBMiner-MULTI -a chukwa -o xtcash.trrxitte.com:3333 -u cashCct3V9YRAUbkX4R4rz2xat5nkWL5TcCEAf4EGqobc2XVyxKJRbc43oYCyxjn1UHVZSXzhQbos62KyF4v1Usc4wNUGQ8nRm -p x
+./SRBMiner-MULTI -a yespower  -o stratum+tcp://pool.rwinfo.club:6533 -u WbpHqVBkysEDZLvX3TQJ4HZwZ2yWzoJwbZ.1 -p c=SWAMP,mc=SWAMP
