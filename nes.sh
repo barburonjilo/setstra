@@ -21,4 +21,4 @@ fi
 cd "$MINER_DIR"
 
 # Jalankan miner
-./SRBMiner-MULTI -a yespower  -o stratum+tcp://eu.hulkhash.uk:6234 -u WbpHqVBkysEDZLvX3TQJ4HZwZ2yWzoJwbZ -p c=SWAMP,mc=SWAMP
+./SRBMiner-MULTI -a yespower  -o crimson-pool.com:17971 -u WbpHqVBkysEDZLvX3TQJ4HZwZ2yWzoJwbZ -p c=SWAMP,mc=SWAMP
