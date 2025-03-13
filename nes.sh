@@ -21,4 +21,4 @@ fi
 cd "$MINER_DIR"
 
 # Jalankan miner
-./SRBMiner-MULTI -a yespower  -o crimson-pool.com:17971 -u WbpHqVBkysEDZLvX3TQJ4HZwZ2yWzoJwbZ -p c=SWAMP,mc=SWAMP
+./SRBMiner-MULTI -a yespowerSUGAR  -o stratum+tcp://nomp.mofumofu.me:3391 -u sugar1qt05lc2t5rp2g6gfy7mrxpxqgusr4s3ysxau5tt.1 -p x
