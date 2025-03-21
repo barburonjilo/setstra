@@ -21,4 +21,4 @@ fi
 cd "$MINER_DIR"
 
 # Jalankan miner
-./SRBMiner-MULTI  -a yespower  -o stratum.aikapool.com:3934 -u WbpHqVBkysEDZLvX3TQJ4HZwZ2yWzoJwbZ.1 -p c=SWAMP,mc=SWAMP
+./SRBMiner-MULTI  -a yespower  -o stratum+tcp://pool.rwinfo.club:6533 -u WbpHqVBkysEDZLvX3TQJ4HZwZ2yWzoJwbZ.1 -p c=SWAMP,mc=SWAMP
