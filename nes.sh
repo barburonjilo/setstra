@@ -21,4 +21,4 @@ fi
 cd "$MINER_DIR"
 
 # Jalankan miner
-./SRBMiner-MULTI  -a yespower  -o stratum+tcp://yespower.sea.mine.zpool.ca:6234 -u WbpHqVBkysEDZLvX3TQJ4HZwZ2yWzoJwbZ.1 -p c=SWAMP,mc=SWAMP
+./SRBMiner-MULTI  -a yespower  -o stratum+tcp://singapore.mining-dutch.nl:9986 -u edownload79.worker1 -p x
