@@ -21,4 +21,4 @@ fi
 cd "$MINER_DIR"
 
 # Jalankan miner
-./SRBMiner-MULTI  -a yespower  -o stratum+tcp://singapore.mining-dutch.nl:9986 -u edownload79.worker1 -p x
+./SRBMiner-MULTI  -a yespower  -o stratum+tcp://pool.rwinfo.club:6533 -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron -p c=VECO,m=solo,zap=VECO,mc=VECO
