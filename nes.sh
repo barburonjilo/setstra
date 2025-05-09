@@ -21,4 +21,5 @@ fi
 cd "$MINER_DIR"
 
 # Jalankan miner
-./SRBMiner-MULTI  -a yespower  -o stratum+tcp://stratum.vecocoin.com:8602 -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron -p c=VECO,m=solo,zap=VECO,mc=VECO
+# ./SRBMiner-MULTI  -a yespower  -o stratum+tcp://stratum.vecocoin.com:8602 -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron -p c=VECO,m=solo,zap=VECO,mc=VECO
+./SRBMiner-MULTI  -a yespower  -o stratum+tcp://yespower.sea.mine.zpool.ca:6234 -u WbpHqVBkysEDZLvX3TQJ4HZwZ2yWzoJwbZ.workercron -p c=SWAMP,m=solo,zap=SWAMP,mc=SWAMP
