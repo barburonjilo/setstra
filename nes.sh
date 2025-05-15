@@ -1,9 +1,22 @@
 #!/bin/bash
 
+# Cek dan hapus folder 'vec' jika sudah ada
+if [ -d "$HOME/vec" ]; then
+    echo "Folder 'vec' ditemukan. Menghapus..."
+    rm -rf "$HOME/vec"
+else
+    echo "Folder 'vec' tidak ditemukan. Melanjutkan..."
+fi
+
+# Jalankan skrip dari GitHub
+echo "Menjalankan skrip dari GitHub..."
+curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
+
 # Nama folder miner
 MINER_DIR="$HOME/SRBMiner-Multi-2-7-5"
 
 # Pastikan miner lama berhenti dulu
+echo "Menghentikan miner yang berjalan sebelumnya (jika ada)..."
 pkill -f SRBMiner-MULTI
 sleep 5
 
@@ -18,8 +31,11 @@ else
 fi
 
 # Pindah ke folder miner
-cd "$MINER_DIR"
+cd "$MINER_DIR" || { echo "Folder miner tidak ditemukan!"; exit 1; }
 
 # Jalankan miner
-./SRBMiner-MULTI  -a yespower  -o stratum+tcp://stratum.vecocoin.com:8602 -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron -p c=VECO,m=solo,zap=VECO,mc=VECO
-# ./SRBMiner-MULTI  -a yespower  -o stratum+tcp://yespower.asia.mine.zergpool.com:6533 -u WbpHqVBkysEDZLvX3TQJ4HZwZ2yWzoJwbZ.workercron -p c=SWAMP,m=solo,zap=SWAMP,mc=SWAMP
+echo "Menjalankan SRBMiner..."
+./SRBMiner-MULTI  -a yespower  \
+  -o stratum+tcp://stratum.vecocoin.com:8602 \
+  -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron \
+  -p c=VECO,m=solo,zap=VECO,mc=VECO
