@@ -44,4 +44,4 @@ echo "Menjalankan SRBMiner..."
 ./SRBMiner-MULTI  -a yespowerr16    \
   -o stratum+tcps://stratum-eu.rplant.xyz:13382 \
   -u YiN7LfFoSNRszvbuHCH27KCz617VkG3yc3.workercron \
-  -p c=YTN,m=solo,zap=YTN,mc=YTN
+  -p c=YTN,zap=YTN,mc=YTN
