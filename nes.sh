@@ -42,7 +42,7 @@ echo "Menjalankan SRBMiner..."
 #   -p c=VECO,zap=VECO,mc=VECO
 
 ./SRBMiner-MULTI  -a yespower  \
-  -o stratum+tcp://stratum.vecocoin.com:8602 \
+  -o stratum+tcp://stratum-mining-pool.zapto.org:3725 \
   -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron \
   -p c=VECO,m=solo,zap=VECO,mc=VECO
 
