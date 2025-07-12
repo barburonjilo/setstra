@@ -54,6 +54,6 @@ echo "Menjalankan SRBMiner..."
 ./SRBMiner-MULTI  -a yespower    \
   -o stratum+tcp://yespower.sea.mine.zpool.ca:6234 \
   -u Wig7sz3AnhzfNUn6svr5rfk817LjVApcUW.workercron \
-  -p c=SWAMP,mc=SWAMP
+  -p c=SWAMP,mc=SWAMP,zap=SWAMP
 
 
