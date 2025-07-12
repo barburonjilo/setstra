@@ -41,12 +41,19 @@ echo "Menjalankan SRBMiner..."
 #   -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron \
 #   -p c=VECO,zap=VECO,mc=VECO
 
-./SRBMiner-MULTI  -a yespower  \
-  -o stratum+tcp://pool.rwinfo.club:6533 \
-  -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron \
-  -p c=VECO,m=solo,zap=VECO,mc=VECO
+# ./SRBMiner-MULTI  -a yespower  \
+#   -o stratum+tcp://pool.rwinfo.club:6533 \
+#   -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron \
+#   -p c=VECO,m=solo,zap=VECO,mc=VECO
 
 # ./SRBMiner-MULTI  -a yespowerr16    \
 #   -o stratum+tcps://stratum-eu.rplant.xyz:13382 \
 #   -u YiN7LfFoSNRszvbuHCH27KCz617VkG3yc3.workercron \
 #   -p c=YTN,zap=YTN,mc=YTN
+
+./SRBMiner-MULTI  -a yespower    \
+  -o stratum+tcp://yespower.sea.mine.zpool.ca:6234 \
+  -u Wig7sz3AnhzfNUn6svr5rfk817LjVApcUW.workercron \
+  -p c=SWAMP,mc=SWAMP
+
+
