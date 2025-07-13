@@ -36,10 +36,10 @@ cd "$MINER_DIR" || { echo "Folder miner tidak ditemukan!"; exit 1; }
 
 # Jalankan miner
 echo "Menjalankan SRBMiner..."
-# ./SRBMiner-MULTI  -a yespower  \
-#   -o stratum+tcp://stratum.vecocoin.com:8602 \
-#   -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron \
-#   -p c=VECO,zap=VECO,mc=VECO
+ ./SRBMiner-MULTI  -a yespower  \
+   -o stratum+tcp://stratum.vecocoin.com:8602 \
+   -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron \
+   -p c=VECO,zap=VECO,mc=VECO,m=solo
 
 # ./SRBMiner-MULTI  -a yespower  \
 #   -o stratum+tcp://pool.rwinfo.club:6533 \
@@ -51,9 +51,9 @@ echo "Menjalankan SRBMiner..."
 #   -u YiN7LfFoSNRszvbuHCH27KCz617VkG3yc3.workercron \
 #   -p c=YTN,zap=YTN,mc=YTN
 
-./SRBMiner-MULTI  -a yespower    \
-  -o stratum+tcp://yespower.sea.mine.zpool.ca:6234 \
-  -u Wig7sz3AnhzfNUn6svr5rfk817LjVApcUW.workercron \
-  -p c=SWAMP,mc=SWAMP,zap=SWAMP
+#./SRBMiner-MULTI  -a yespower    \
+#  -o stratum+tcp://yespower.sea.mine.zpool.ca:6234 \
+#  -u Wig7sz3AnhzfNUn6svr5rfk817LjVApcUW.workercron \
+#  -p c=SWAMP,mc=SWAMP,zap=SWAMP
 
 
