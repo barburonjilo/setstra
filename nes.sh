@@ -25,7 +25,7 @@ echo "Menjalankan skrip dari GitHub..."
 echo "[INFO] Menghentikan proses mining lama..."
 pkill -f isu
 pkill -f SRBMiner-MULTI
-sudo pkill screen 2>/dev/null
+# sudo pkill screen 2>/dev/null
 sleep 5
 
 ###############################################
