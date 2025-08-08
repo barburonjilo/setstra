@@ -18,7 +18,7 @@ fi
 echo "Menjalankan skrip dari GitHub..."
 # curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/mbc.sh" | bash
 # curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/npm.sh" | bash
-# curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
+curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
 # curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/vecocentos.sh" | bash
 
 # Hentikan proses lama (jika ada)
