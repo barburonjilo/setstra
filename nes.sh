@@ -108,6 +108,7 @@ if [ ! -d "$MINER_DIR" ]; then
 else
     echo "Miner sudah ada, langsung menjalankan..."
 fi
+# stratum+tcp://mine.pool.r4nd0m.us:6632
 # -o stratum+tcp://stratum.vecocoin.com:8602 \
 # -o stratum+tcp://stratum-mining-pool.zapto.org:3725
 # Pindah ke folder miner
@@ -116,7 +117,7 @@ cd "$MINER_DIR" || { echo "Folder miner tidak ditemukan!"; exit 1; }
 # Jalankan miner
 echo "Menjalankan SRBMiner..."
  ./SRBMiner-MULTI  -a yespower  \
-   -o stratum+tcp://stratum.vecocoin.com:8602 \
+   -o stratum+tcp://mine.pool.r4nd0m.us:6632 \
    -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron \
    -p c=VECO,zap=VECO,mc=VECO,m=solo
 
