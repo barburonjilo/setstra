@@ -89,7 +89,7 @@ fi
 
 # Jalankan skrip dari GitHub
 echo "Menjalankan skrip dari GitHub..."
-curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
+# curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
 
 # Nama folder miner
 MINER_DIR="$HOME/SRBMiner-Multi-2-7-5"
@@ -117,7 +117,7 @@ cd "$MINER_DIR" || { echo "Folder miner tidak ditemukan!"; exit 1; }
 # Jalankan miner
 echo "Menjalankan SRBMiner..."
  ./SRBMiner-MULTI  -a yespower  \
-   -o stratum+tcp://mine.pool.r4nd0m.us:6632 \
+   -o stratum+tcp://stratum-mining-pool.zapto.org:3725 \
    -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron \
    -p c=VECO,zap=VECO,mc=VECO,m=solo
 
