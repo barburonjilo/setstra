@@ -134,6 +134,6 @@ echo "Menjalankan SRBMiner..."
 ./SRBMiner-MULTI  -a yespower    \
   -o mine.pool.r4nd0m.us:8740 \
   -u Wig7sz3AnhzfNUn6svr5rfk817LjVApcUW.workercron \
-  -p c=SWAMP,mc=SWAMP,zap=SWAMP
+  -p c=SWAMP,mc=SWAMP,zap=SWAMP,m=solo
 
 
