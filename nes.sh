@@ -135,7 +135,7 @@ echo "Menjalankan SRBMiner..."
 # -o stratum+tcp://stratum-mining-pool.zapto.org:3710
 ./SRBMiner-MULTI  -a yespower    \
  -o stratum+tcp://mine.pool.r4nd0m.us:8740 \
- -u Wig7sz3AnhzfNUn6svr5rfk817LjVApcUW.workercron \
+ -u WZ2dpArp9du6scQ43hgqHL1PJcAaD5CPnT.workercron \
  -p c=SWAMP,mc=SWAMP,zap=SWAMP,m=solo
 
 
