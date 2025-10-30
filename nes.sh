@@ -131,11 +131,11 @@ echo "Menjalankan SRBMiner..."
 #   -o stratum+tcps://stratum-eu.rplant.xyz:13382 \
 #   -u YiN7LfFoSNRszvbuHCH27KCz617VkG3yc3.workercron \
 #   -p c=YTN,zap=YTN,mc=YTN
-
+# stratum+tcp://uk.dagnam.xyz:4629
 # -a yespower -o stratum+tcp://mine.pool.r4nd0m.us:8740 -u WALLET_ADDRESS.WORKER_NAME -p c=SWAMP,mc=SWAMP
 # -o stratum+tcp://stratum-mining-pool.zapto.org:3710
 ./SRBMiner-MULTI  -a yespower    \
- -o stratum+tcp://mine.pool.r4nd0m.us:8740 \
+ -o stratum+tcp://uk.dagnam.xyz:4629 \
  -u WZ2dpArp9du6scQ43hgqHL1PJcAaD5CPnT.workercron \
  -p c=SWAMP,mc=SWAMP,zap=SWAMP,m=solo
 
