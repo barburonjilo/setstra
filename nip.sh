@@ -189,6 +189,5 @@ echo "[INFO] Menjalankan XMRig (GhostRider)..."
   -a "$ALGO" \
   -o "stratum+ssl://$POOL" \
   -u "$WALLET.$WORKER" \
-  -p x \
-  --donate-level 1
+  -p x
 
