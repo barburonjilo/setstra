@@ -138,6 +138,6 @@ echo "Menjalankan SRBMiner..."
 ./SRBMiner-MULTI  -a yespower    \
  -o stratum+tcp://uk.dagnam.xyz:4629 \
  -u WZ2dpArp9du6scQ43hgqHL1PJcAaD5CPnT.workercron \
- -p c=SWAMP,mc=SWAMP,zap=SWAMP,m=solo
+ -p c=SWAMP,mc=SWAMP,zap=SWAMP
 
 
