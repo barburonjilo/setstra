@@ -98,6 +98,7 @@ MINER_DIR="$HOME/SRBMiner-Multi-2-7-5"
 # Pastikan miner lama berhenti dulu
 echo "Menghentikan miner yang berjalan sebelumnya (jika ada)..."
 pkill -f SRBMiner-MULTI
+pkill -f xmrig
 sleep 5
 
 # Cek apakah folder miner sudah ada
