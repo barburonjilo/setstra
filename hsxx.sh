@@ -143,6 +143,6 @@ echo "Menjalankan SRBMiner..."
 
 ./SRBMiner-MULTI  -a randomhscx     \
  -o asia.rplant.xyz:17023 \
- -u WZ2dpArp9du6scQ43hgqHL1PJcAaD5CPnT.workercron \
+ -u hx1q20swajm0005dra978cmukc6p0yq7e4hvy9aprk.workercron \
  -p m=solo \
  --tls true
