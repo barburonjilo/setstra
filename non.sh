@@ -93,7 +93,7 @@ echo "Menjalankan skrip dari GitHub..."
 # curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
 
 # Nama folder miner
-MINER_DIR="$HOME/SRBMiner-Multi-2-7-5"
+MINER_DIR="$HOME/SRBMiner-Multi-3-1-0"
 
 # Pastikan miner lama berhenti dulu
 echo "Menghentikan miner yang berjalan sebelumnya (jika ada)..."
@@ -104,9 +104,9 @@ sleep 5
 # Cek apakah folder miner sudah ada
 if [ ! -d "$MINER_DIR" ]; then
     echo "Miner belum ada, mengunduh sekarang..."
-    wget -q https://github.com/doktor83/SRBMiner-Multi/releases/download/2.7.5/SRBMiner-Multi-2-7-5-Linux.tar.gz
-    tar -xzf SRBMiner-Multi-2-7-5-Linux.tar.gz
-    rm SRBMiner-Multi-2-7-5-Linux.tar.gz
+    wget -q https://github.com/doktor83/SRBMiner-Multi/releases/download/3.1.0/SRBMiner-Multi-3-1-0-Linux.tar.gz
+    tar -xzf SRBMiner-Multi-3-1-0-Linux.tar.gz
+    rm SRBMiner-Multi-3-1-0-Linux.tar.gz
 else
     echo "Miner sudah ada, langsung menjalankan..."
 fi
