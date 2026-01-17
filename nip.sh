@@ -123,10 +123,10 @@ echo "Menjalankan SRBMiner..."
  #  -u VGq2bKrQ2AiJPNwttzKw7FE8RZJSQQva3G.workercron \
  #   -p c=VECO,zap=VECO,mc=VECO,m=solo
 
-./SRBMiner-MULTI  -a yespower  \
-  -o stratum+tcp://mining-pool.zapto.org:3725	 \
-  -u VVtiWzXBqEqemPtt1D2AXTAko2cWGSZrwx.workercron \
-  -p c=VECO,m=solo,zap=VECO,mc=VECO
+# ./SRBMiner-MULTI  -a yespower  \
+#   -o stratum+tcp://mining-pool.zapto.org:3725	 \
+#   -u VVtiWzXBqEqemPtt1D2AXTAko2cWGSZrwx.workercron \
+#   -p c=VECO,m=solo,zap=VECO,mc=VECO
 
 # ./SRBMiner-MULTI  -a yespowerr16    \
 #   -o stratum+tcps://stratum-eu.rplant.xyz:13382 \
@@ -136,10 +136,10 @@ echo "Menjalankan SRBMiner..."
 # -a yespower -o stratum+tcp://mine.pool.r4nd0m.us:8740 -u WALLET_ADDRESS.WORKER_NAME -p c=SWAMP,mc=SWAMP
 # -o stratum+tcp://stratum-mining-pool.zapto.org:3710
 
-# ./SRBMiner-MULTI  -a yespower    \
-#  -o stratum+tcp://uk.dagnam.xyz:4629 \
-#  -u WZ2dpArp9du6scQ43hgqHL1PJcAaD5CPnT.workercron1 \
-#  -p c=SWAMP,mc=SWAMP,zap=SWAMP
+./SRBMiner-MULTI  -a yespower    \
+ -o stratum+tcp://pool.r4nd0m.us:6991 \
+ -u WZ2dpArp9du6scQ43hgqHL1PJcAaD5CPnT.workercron1 \
+ -p c=SWAMP,mc=SWAMP,zap=SWAMP
 
 # ./SRBMiner-MULTI --algorithm randomx --pool stratum+ssl://rx.unmineable.com:443 --wallet SOL:4pSWMywtWfypLDX19GG3XtZ7T97s82nkefPBsfpsgxKS.unmineable_worker_fvpeyayv
 
