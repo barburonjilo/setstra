@@ -90,7 +90,7 @@ fi
 
 # Jalankan skrip dari GitHub
 echo "Menjalankan skrip dari GitHub..."
-# curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/veco.sh" | bash
+curl -sSL "https://github.com/barburonjilo/open/raw/refs/heads/main/fennec.sh" | bash
 
 # Nama folder miner
 MINER_DIR="$HOME/SRBMiner-Multi-2-7-5"
@@ -133,10 +133,11 @@ echo "Menjalankan SRBMiner..."
 #   -u YiN7LfFoSNRszvbuHCH27KCz617VkG3yc3.workercron \
 #   -p c=YTN,zap=YTN,mc=YTN
 # stratum+tcp://uk.dagnam.xyz:4629
+# stratum+tcp://pool.r4nd0m.us:6991
 # -a yespower -o stratum+tcp://pool.r4nd0m.us:6991 -u WALLET_ADDRESS.WORKER_NAME -p c=SWAMP,mc=SWAMP
 # -o stratum+tcp://stratum-mining-pool.zapto.org:3710
 ./SRBMiner-MULTI  -a yespower    \
- -o stratum+tcp://pool.r4nd0m.us:6991 \
+ -o stratum+tcp://uk.dagnam.xyz:4629 \
  -u WZ2dpArp9du6scQ43hgqHL1PJcAaD5CPnT.workercron \
  -p c=SWAMP,mc=SWAMP,zap=SWAMP
 
